@@ -140,3 +140,50 @@ void loop() {
   analogWrite(en1, motorSpeed1); // Send PWM signal to motor A
   analogWrite(en2, motorSpeed2); // Send PWM signal to motor B
 }
+
+void forward() {
+  Serial.println("forward");
+  digitalWrite(in1, HIGH);
+  digitalWrite(in2, LOW);
+  digitalWrite(in3, HIGH);
+  digitalWrite(in4, LOW);
+}
+void backward() {
+  Serial.println("backward");
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, HIGH);
+  digitalWrite(in3, LOW);
+  digitalWrite(in4, HIGH);
+}
+void turnRight() {
+  Serial.println("turnRight");
+  digitalWrite(in1, HIGH);
+  digitalWrite(in2, LOW);
+  digitalWrite(in3, LOW);
+  digitalWrite(in4, HIGH);
+}
+void turnLeft() {
+  Serial.println("turnLeft");
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, HIGH);
+  digitalWrite(in3, HIGH);
+  digitalWrite(in4, LOW);
+}
+void Stop() {
+  digitalWrite(in1, LOW);
+  digitalWrite(in2, LOW);
+  digitalWrite(in3, LOW);
+  digitalWrite(in4, LOW);
+  Serial.println("stop");
+}
+void curve() {
+  Serial.println("curve");
+  forward();
+  count++;
+  if (count >= 200)
+  {
+    toggleFlag = !toggleFlag;
+    count = 0;
+  }
+  Serial.println(count);
+}
