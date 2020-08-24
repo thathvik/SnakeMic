@@ -30,8 +30,6 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  void loop() {
   // Read the incoming data from the Smartphone Android App
   while (Bluetooth.available() >= 2) {
     xDir = Bluetooth.read();
@@ -141,6 +139,4 @@ void loop() {
 
   analogWrite(en1, motorSpeed1); // Send PWM signal to motor A
   analogWrite(en2, motorSpeed2); // Send PWM signal to motor B
-}
-
 }
